@@ -1,73 +1,42 @@
 package com.vuelos.service;
 
-
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-
-import com.vuelos.entity.Pasajero;
-import com.vuelos.repository.IPasajeroRepo;
-
+import com.vuelos.entity.Pasaje;
+import com.vuelos.repository.IPasajeRepo;
 
 @Service
-public class PasajeroService implements IPasajeroRepo {
-
-	@Autowired
-	private IPasajeroRepo pasajeroRepository;
+public class PasajeService implements IPasajeRepo {
+	
+	private IPasajeRepo pasajeRepository;
 
 	@Override
-	public List<Pasajero> findAll() {
+	public List<Pasaje> findAll() {
 		// TODO Auto-generated method stub
-		return pasajeroRepository.findAll();
-	}
-	
-	
-	public Pasajero findPasajeroById(int id){
-		
-		List<Pasajero> pasajero = pasajeroRepository.findAll();
-		for (int i = 0; i < pasajero.size(); i++) {
-			if(pasajero.get(i).getId()==id) {
-				return pasajero.get(i);
-			}
-		}
-		return null;
-	}
-	
-	
-	public Boolean actualizarPasajero(Pasajero pasajero1) {
-
-		Pasajero pasajero = findPasajeroById(pasajero1.getId());
-		pasajero.setNombre(pasajero1.getNombre());
-		pasajero.setDocumento(pasajero1.getDocumento());
-		pasajero.setEmail(pasajero1.getEmail());
-		pasajero.setTelefono(pasajero1.getTelefono());
-		pasajeroRepository.save(pasajero);
-		
-		return true;
-		
-	}
-	
-	@Override
-	public List<Pasajero> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return pasajeroRepository.findAll(sort);
+		return pasajeRepository.findAll();
 	}
 
 	@Override
-	public List<Pasajero> findAllById(Iterable<Integer> ids) {
+	public List<Pasaje> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> List<S> saveAll(Iterable<S> entities) {
+	public List<Pasaje> findAllById(Iterable<Integer> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Pasaje> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -79,19 +48,19 @@ public class PasajeroService implements IPasajeroRepo {
 	}
 
 	@Override
-	public <S extends Pasajero> S saveAndFlush(S entity) {
+	public <S extends Pasaje> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> List<S> saveAllAndFlush(Iterable<S> entities) {
+	public <S extends Pasaje> List<S> saveAllAndFlush(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteAllInBatch(Iterable<Pasajero> entities) {
+	public void deleteAllInBatch(Iterable<Pasaje> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -109,43 +78,43 @@ public class PasajeroService implements IPasajeroRepo {
 	}
 
 	@Override
-	public Pasajero getOne(Integer id) {
+	public Pasaje getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Pasajero getById(Integer id) {
+	public Pasaje getById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> List<S> findAll(Example<S> example) {
+	public <S extends Pasaje> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Pasaje> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Pasajero> findAll(Pageable pageable) {
+	public Page<Pasaje> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> S save(S entity) {
+	public <S extends Pasaje> S save(S entity) {
 		// TODO Auto-generated method stub
-		return pasajeroRepository.save(entity);
+		return null;
 	}
 
 	@Override
-	public Optional<Pasajero> findById(Integer id) {
+	public Optional<Pasaje> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -165,13 +134,12 @@ public class PasajeroService implements IPasajeroRepo {
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
-		pasajeroRepository.deleteById(id);
+		
 	}
 
 	@Override
-	public void delete(Pasajero entity) {
+	public void delete(Pasaje entity) {
 		// TODO Auto-generated method stub
-		pasajeroRepository.delete(entity);
 		
 	}
 
@@ -182,7 +150,7 @@ public class PasajeroService implements IPasajeroRepo {
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Pasajero> entities) {
+	public void deleteAll(Iterable<? extends Pasaje> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -194,35 +162,29 @@ public class PasajeroService implements IPasajeroRepo {
 	}
 
 	@Override
-	public <S extends Pasajero> Optional<S> findOne(Example<S> example) {
+	public <S extends Pasaje> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Pasaje> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Pasajero> long count(Example<S> example) {
+	public <S extends Pasaje> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Pasajero> boolean exists(Example<S> example) {
+	public <S extends Pasaje> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-//	@Override
-//	public void registrar(String nombre) {
-//
-//		repo.registrar(nombre);
-//
-//	}
+	
 	
 
 }

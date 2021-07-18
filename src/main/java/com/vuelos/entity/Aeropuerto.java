@@ -2,8 +2,10 @@ package com.vuelos.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "Aeropuerto")
@@ -33,7 +39,9 @@ public class Aeropuerto {
 	@Column(name="ciudad", length=50)
 	private String ciudad;
 	
-	@OneToMany (mappedBy="aeropuerto")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "aeropuerto")
+	@JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Set<Avion> aviones;
 
 	/**
