@@ -1,6 +1,7 @@
 package com.vuelos.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -146,8 +147,7 @@ public class PasajeroService implements IPasajeroRepo {
 
 	@Override
 	public Optional<Pasajero> findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return pasajeroRepository.findById(id);
 	}
 
 	@Override

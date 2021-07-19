@@ -49,9 +49,7 @@ public class PasajeroREST {
 	
 	@PostMapping(value = "modificar/{id}")
 	private ResponseEntity<Boolean> editarPasajero(@RequestBody Pasajero pasajero){
-		   // pasajeroService.findPasajeroById(id);
-			
-//		    ResponseEntity<List<Pasajero>> pasajero = ResponseEntity.ok(pasajeroService.findPasajeroById(id));
+
 		   
 			return ResponseEntity.ok(pasajeroService.actualizarPasajero(pasajero));
 
@@ -65,8 +63,4 @@ public class PasajeroREST {
 		
 	}
 	
-//	@PostMapping
-//	public void insertar(@RequestBody Pasajero pasajero) {
-//		pasajeroService.save(pasajero);
-//	}
 }
