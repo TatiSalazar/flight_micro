@@ -51,6 +51,7 @@ class VuelosApplicationTests {
 			pasajero.setNombre("tatiana");
 			pasajero.setId(1);
 			
+		
 			
 
 			ResponseEntity<Pasajero> postResponse = restTemplate.postForEntity(getRootUrl() + "/pasajeros", pasajero, Pasajero.class);
@@ -71,9 +72,15 @@ class VuelosApplicationTests {
 
 		@Test
 		public void testGetPasajerosById() {
-			Pasajero pasajero = restTemplate.getForObject(getRootUrl() + "/pasajeros/1", Pasajero.class);
-			//System.out.println(pasajero.getNombre());
-			assertNotNull(pasajero);
+			int id = 2;
+			
+			try {
+				Pasajero pasajero1 = restTemplate.getForObject(getRootUrl() + "/pasajeros/"+id, Pasajero.class);
+				//System.out.println(pasajero.getNombre());
+				assertNotNull(pasajero1);
+			} catch (final HttpClientErrorException e) {
+				assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
+			}
 		}
 
 
@@ -99,7 +106,7 @@ class VuelosApplicationTests {
 			restTemplate.delete(getRootUrl() + "/pasajeros/delete/" + id);
 
 			try {
-				pasajero = restTemplate.getForObject(getRootUrl() + "/pasajeros/" + id, Pasajero.class);
+				pasajero = restTemplate.getForObject(getRootUrl() + "/pasajeros/delete/" + id, Pasajero.class);
 			} catch (final HttpClientErrorException e) {
 				assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
 			}

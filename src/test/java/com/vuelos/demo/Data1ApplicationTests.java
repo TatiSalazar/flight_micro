@@ -87,6 +87,20 @@
 ////    assertThat(pasajerosList, hasItem(pasajero));
 ////    assertThat(pasajerosList, hasItem(pasajero2));
 ////  }
+//    @Test
+//    public void saveCustomer() {
+//     
+//        entityManager.persistAndFlush(pasajero);
+//        assertThat(pasajero.getId()).isNotNull();
+//    }
+//    @Test
+//    public void deleteCustomer() {
+//        entityManager.persistAndFlush(pasajero);
+//        entityManager.persistAndFlush(pasajero1);
+//
+//        repository.deleteAll();
+//        assertThat(repository.findAll()).isEmpty();
+//    }
 //  
 //  
 //  
