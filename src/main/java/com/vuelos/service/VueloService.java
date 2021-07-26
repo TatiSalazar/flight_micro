@@ -1,7 +1,9 @@
 package com.vuelos.service;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -10,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.vuelos.entity.Pasaje;
+import com.vuelos.entity.Pasajero;
 import com.vuelos.entity.Vuelo;
 import com.vuelos.repository.IVueloRepo;
 
@@ -118,7 +122,7 @@ public class VueloService implements IVueloRepo{
 	@Override
 	public Optional<Vuelo> findById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return vueloRepository.findById(id);
 	}
 
 	@Override
@@ -187,5 +191,6 @@ public class VueloService implements IVueloRepo{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	
 }

@@ -26,7 +26,7 @@ public class PasajeService implements IPasajeRepo {
 	@Override
 	public List<Pasaje> findAll(Sort sort) {
 		// TODO Auto-generated method stub
-		return null;
+		return pasajeRepository.findAll(sort);
 	}
 
 	@Override
@@ -184,6 +184,12 @@ public class PasajeService implements IPasajeRepo {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+//	@Override
+//	public List<Pasaje> findByVuelo(int id) {
+//		// TODO Auto-generated method stub
+//		return pasajeRepository.findByVuelo(id);
+//	}
 	
 	
 
